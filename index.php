@@ -8,5 +8,6 @@
 <?php
 echo "TODO: Make blag";
 ?>
+<p><a href="post.php">Post something new</a></p>
 </body>
 </html>
