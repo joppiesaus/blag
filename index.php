@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 </head>
 <body>
-<php
+<?php
 echo "TODO: Make blag";
 ?>
 </body>
