@@ -1,14 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Blag</title>
+	<link rel="stylesheet" type="text/css" href="view_style.css">
+	<meta charset="utf-8">
+</head>
+<h1>My blag</h1>
+<body>
+
 <?php
 
-$pid = $_GET["id"];
+$pids = $_GET["id"];
 
-if (strlen($pid) == 0)
+if (strlen($pids) == 0)
 {
 	exit;
 }
 
-$pidarr = explode(",", $pid);
+$pidarr = explode(",", $pids);
 
-// TODO: Implement viewing
+require_once "do_view.php";
+
+foreach ($pidarr as $pid)
+{
+	view($pid);
+}
 
 ?>
+
+</body>
+</html>
