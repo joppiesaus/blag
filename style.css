@@ -1,0 +1,22 @@
+.post
+{
+	background-color: #AAAAAA;
+	margin-bottom: 25px;
+	padding: 6px;
+}
+.post_content
+{
+    background-color: #FAFAFA;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+.post_title
+{
+	text-decoration: underline;
+	font-weight: bold;
+}
+.post_date
+{
+	float: right;
+}
