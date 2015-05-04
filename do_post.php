@@ -19,35 +19,24 @@ if (strlen($text) === 0)
 	exit;
 }
 
-#echo $date . "<br>";
-#echo $title . "<br>";
-#echo $text;
-
+require_once "blag.php";
 require_once "postcounter.php";
 
-// get a new post identification number
+// Get a new post identification number
 $pid = getNewPostNumber();
 
 // Get the paths
 // You need DOCUMENT_ROOT. PHP doesn't allow that when mkdir
 $postdir = $_SERVER['DOCUMENT_ROOT'] . "/blag/p/" . $pid . "/";
-$postpath = $postdir . "index.html";
 
-// make a directory for the post
+// Make a directory for the post
 mkdir($postdir);
 
 
-// save the post
-// chmod($postpath, 0700); // Oh my god. PHP, y u do dis to me. we need to talk. its over. Oh, but wait, I need you,.
-$fs = fopen($postpath, "w");
-fwrite($fs, $text);
-fclose($fs);
+saveFileContents($postdir . "post.json", json_encode([ "title" => $title, "date" => $date ]));
 
-/*$fs = fopen($postpath, "r");
-$thing = fread($fs, filesize($postpath));
-fclose($fs);
-
-echo $thing;*/
+// Save the post!
+saveFileContents($postdir . "index.html", $text);
 ?>
 
 </body>

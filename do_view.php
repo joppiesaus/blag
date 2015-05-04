@@ -1,9 +1,9 @@
 <?php
 
+// Displays a post
 function view($pid)
 {
 	$postdir = $_SERVER['DOCUMENT_ROOT'] . "/blag/p/" . $pid . "/";
-	$postpath = $postdir . "index.html";
 	
 	
 	// Check if post actually exists
@@ -13,13 +13,16 @@ function view($pid)
 	}
 
 	// Open the file, read the contents
-	$f = fopen($postpath, "r");
-	$content = fread($f, filesize($postpath));
-	fclose($f);
+	require "blag.php";
+
+	$content = getFileContents($postdir . "index.html");
+	$post = json_decode(getFileContents($postdir . "post.json"), true);
 	
-	// display it
+	// Display it
 	// TODO: Make better
-	echo '<div class="post_content">' . $content . '</div>';
+	echo '<div class="post"><h1 class="post_title">' . $post["title"] . 
+	'</h1><span class="post_date">'	. $post["date"] . 
+	'</span><div class="post_content">' . $content . '</div></div>';
 }
 
 ?>

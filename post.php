@@ -14,9 +14,5 @@
 
 </form>
 
-
-<?php
-?>
-
 </body>
 </html>
