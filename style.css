@@ -1,3 +1,25 @@
+body
+{
+	background-color: #888888;
+}
+#lnav
+{
+	position: fixed;
+	width: 15%;
+	height: 100%;
+	float: left;
+	background-color: #313232;
+	color: #d9ff26;
+}
+#lnav a
+{
+	color: #d9ff26;
+}
+#container
+{
+	background-color: #888888;
+	margin-left: 20%;
+}
 .post
 {
 	background-color: #AAAAAA;

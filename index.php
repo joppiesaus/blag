@@ -7,9 +7,17 @@
 </head>
 <body>
 
-<p><a href="post.php">Post something new</a></p>
+<nav id="lnav">
+	<ul>
+		<li><a href="post.php">Post something new</a></li>
+		<li><a href="index.php?id=1,5">Go buy your mom a house</a></li>
+	</ul>
+</nav>
+
+<div id="container">
+
 <?php
-// Let's face it. PHP sucks.
+// Let's face it. PHP sucks. But that's ok.
 
 require "blag.php";
 require "do_view.php";
@@ -49,5 +57,6 @@ else // Or display last twenty posts instead (or selected history)
 
 ?>
 
+</div>
 </body>
 </html>
