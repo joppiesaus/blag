@@ -65,22 +65,26 @@ function gebi(id)
 	return document.getElementById(id);
 }
 
-// Sends an synchronous http get and returns it's content
-// TODO: Make asynchrounous!!!
-function httpGet(url)
+// Sends an asynchronous http get and returns it's content
+function httpGet(url, callback)
 {
 	// Good old javascript!
 	var http = new XMLHttpRequest();
-	http.open("GET", url, false);
+	http.open("GET", url, true);
+	http.onload = callback;
 	http.send(null);
-	return http.responseText;
 }
 
 
 // Gives the target post some love and updates the love on the page
 function lovePost(id)
 {
-	gebi("iLoveThePost-"+id).innerHTML = httpGet("love.php?id="+id);
+	httpGet("love.php?id="+id,
+		function()
+		{
+			gebi("iLoveThePost-"+id).innerHTML = this.responseText;
+		}
+	);
 }
 </script>
 </body>
