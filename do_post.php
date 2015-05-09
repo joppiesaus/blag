@@ -33,7 +33,7 @@ $postdir = BLAGPATH . "/p/" . $pid . "/";
 mkdir($postdir);
 
 
-saveFileContents($postdir . "post.json", json_encode([ "title" => $title, "date" => $date ]));
+saveFileContents($postdir . "post.json", json_encode([ "title" => $title, "date" => $date, "love" => 0 ]));
 
 // Save the post!
 saveFileContents($postdir . "index.html", $text);

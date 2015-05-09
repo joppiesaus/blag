@@ -1,6 +1,6 @@
 body
 {
-	background-color: #888888;
+	background-color: #58587B;
 }
 #lnav
 {
@@ -17,12 +17,11 @@ body
 }
 #container
 {
-	background-color: #888888;
 	margin-left: 20%;
 }
 .post
 {
-	background-color: #AAAAAA;
+	background-color: #BBBBBB;
 	margin-bottom: 25px;
 	padding: 6px;
 }
@@ -38,7 +37,22 @@ body
 	text-decoration: underline;
 	font-weight: bold;
 }
+.post_footer
+{
+	background-color: #41944F;
+	width: 100%;
+	padding-left: 4px;
+	padding-right: 4px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.post_love
+{
+	font-weight: bold;
+	color: #120000;
+}
 .post_date
 {
 	float: right;
+	color: #E6E6E6;
 }

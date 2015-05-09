@@ -18,11 +18,11 @@ function view($pid)
 	
 	// Display it
 	// TODO: Make better
-	echo '<div class="post"><span class="post_date">' . dateToReadableString($post["date"]) .
-	'</span><h1 class="post_title"><a href="' 
+	echo '<div class="post"></span><h1 class="post_title"><a href="' 
 	. 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'] . '?id=' . $pid . '">' . 
 	$post["title"] . 
-	'</a></h1><div class="post_content">' . $content . '</div></div>';
+	'</a></h1><div class="post_content">' . $content . '</div><div class="post_footer"><span class="post_love">'
+	. $post["love"] .'</span><span class="post_date">' . dateToReadableString($post["date"]) . '</span></div></div>';
 }
 
 ?>
