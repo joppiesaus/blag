@@ -2,6 +2,15 @@
 
 define("BLAGPATH", $_SERVER['DOCUMENT_ROOT'] . "/blag");
 
+function getPostjson($pid)
+{
+	return json_decode(getFileContents(BLAGPATH . "/p/" . $pid . "/post.json"), true);
+}
+
+function setPostjson($pid, $json)
+{
+	saveFileContents(BLAGPATH . "/p/" . $pid . "/post.json", json_encode($json));
+}
 
 // inserts target zero's to string
 function fillUpZeros($t, $n)

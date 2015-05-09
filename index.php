@@ -58,5 +58,30 @@ else // Or display last twenty posts instead (or selected history)
 ?>
 
 </div>
+<script>
+// GetElementById
+function gebi(id)
+{
+	return document.getElementById(id);
+}
+
+// Sends an synchronous http get and returns it's content
+// TODO: Make asynchrounous!!!
+function httpGet(url)
+{
+	// Good old javascript!
+	var http = new XMLHttpRequest();
+	http.open("GET", url, false);
+	http.send(null);
+	return http.responseText;
+}
+
+
+// Gives the target post some love and updates the love on the page
+function lovePost(id)
+{
+	gebi("iLoveThePost-"+id).innerHTML = httpGet("love.php?id="+id);
+}
+</script>
 </body>
 </html>
