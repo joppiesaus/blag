@@ -27,8 +27,8 @@ function setPostCount($count)
 
 function getNewPostNumber()
 {
-	$count = getPostCount();
-	setPostCount($count + 1);
+	$count = getPostCount() + 1;
+	setPostCount($count);
 	return $count;
 }
 ?>
