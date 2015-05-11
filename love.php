@@ -2,7 +2,8 @@
 //2complex4me
 //veryman.expert
 
-if (!empty($_GET["id"]))
+
+if (array_key_exists("id", $_GET))
 {
 	require "do_love.php";
 	require "blag.php";

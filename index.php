@@ -11,6 +11,7 @@
 	<ul>
 		<li><a href="post.php">Post something new</a></li>
 		<li><a href="grid.php">View post history</a></li>
+		<li><a href="edit.php">Edit a post</a></li>
 	</ul>
 </nav>
 
@@ -23,7 +24,7 @@ require "blag.php";
 require "do_view.php";
 
 // Display selected post(s),
-if (!empty($_GET["id"]))
+if (array_key_exists("id", $_GET))
 {
 	$pids = explode(",", $_GET["id"]);
 
@@ -35,14 +36,14 @@ if (!empty($_GET["id"]))
 else // Or display last twenty posts instead (or selected history)
 {
 	$a;
-	if (empty($_GET["from"]))
+	if (array_key_exists("from", $_GET))
 	{
-		require "postcounter.php";
-		$a = getPostCount();
+		$a = intval($_GET["from"]);
 	}
 	else
 	{
-		$a = intval($_GET["from"]);
+		require "postcounter.php";
+		$a = getPostCount();
 	}
 
 	for ($i = 0; $i < 20; $i++)
