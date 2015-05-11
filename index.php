@@ -23,8 +23,21 @@
 require "blag.php";
 require "do_view.php";
 
+// $_SERVER['SERVER_ADDR']
+
+$db = new PDO('mysql:host=localhost;dbname=blag', "blag", "TpytrpFPfMqBKnqG");
+$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
+
+$query =$db->prepare("SELECT * FROM posts");
+$query->execute(); 
+
+while ($row = $query->fetch(PDO::FETCH_ASSOC))
+{
+	echo $row["title"] . (string)$row . '<br>';
+}
+
 // Display selected post(s),
-if (array_key_exists("id", $_GET))
+/*if (array_key_exists("id", $_GET))
 {
 	$pids = explode(",", $_GET["id"]);
 
@@ -54,7 +67,7 @@ else // Or display last twenty posts instead (or selected history)
 			break;
 		}
 	}
-}
+}*/
 
 ?>
 
