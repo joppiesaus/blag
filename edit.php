@@ -24,7 +24,7 @@
 	$text = getFileContents(BLAGPATH . '/p/' . $pid . '/index.html');
 
 	echo 'Title: <input type="text" value="' . $title . '" name="p_title" /><br><br>';
-	echo 'Text: <textarea value="' . $text . '" name="p_content"></textarea>';
+	echo 'Text: <textarea name="p_content">' . $text . '</textarea>';
 
 	$_POST["id"] = $pid;
 
