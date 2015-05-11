@@ -3,28 +3,19 @@
 // Requires blag.php
 
 // Displays a post
-function view($pid)
+function view($id)
 {
-	$postdir = BLAGPATH . "/p/" . $pid . "/";
-	
-	
-	// Check if post actually exists
-	if (!file_exists($postdir))
-	{
-		return;
-	}
+	require "datehelper.php";
 
-	// Open the file, read the contents
-	$content = getFileContents($postdir . "index.html");
-	$post = json_decode(getFileContents($postdir . "post.json"), true);
-	
+	$post = getPost($id)->content;
+
 	// Display it
 	// TODO: Make better
 	echo '<div class="post"></span><h1 class="post_title"><a href="' 
-	. 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'] . '?id=' . $pid . '">' . 
+	. 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'] . '?id=' . $id . '">' . 
 	$post["title"] . 
-	'</a></h1><div class="post_content">' . $content . '</div><div class="post_footer"><span class="post_love" id="iLoveThePost-' . $pid .'" onclick="lovePost(' . $pid . ')">'
-	. $post["love"] .'</span><span class="post_date">' . dateToReadableString($post["date"]) . '</span></div></div>';
+	'</a></h1><div class="post_content">' . $post["content"] . '</div><div class="post_footer"><span class="post_love" id="iLoveThePost-' . $id .'" onclick="lovePost(' . $id . ')">'
+	. $post["love"] .'</span><span class="post_date">' . dateToReadableString($post["submitdate"]) . '</span></div></div>';
 }
 
 ?>

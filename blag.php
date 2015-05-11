@@ -1,52 +1,41 @@
 <?php
 
-define("BLAGPATH", $_SERVER['DOCUMENT_ROOT'] . "/blag");
+// TODO: Implement
 
-function getPostjson($pid)
+class Post
 {
-	return json_decode(getFileContents(BLAGPATH . "/p/" . $pid . "/post.json"), true);
-}
+	$id;
+	$content;
 
-function setPostjson($pid, $json)
-{
-	saveFileContents(BLAGPATH . "/p/" . $pid . "/post.json", json_encode($json));
-}
-
-// inserts target zero's to string
-function fillUpZeros($t, $n)
-{
-	$len = $n - strlen($t);
-	for ($i = 0; $i < $len; $i++)
+	// Saves this post
+	function save()
 	{
-		$t = "0" . $t;
+
 	}
-	return $t;
-};
-
-// Prints the selected date in the internation standard date and time notation
-function dateToReadableString($date)
-{
-	// TODO: Timezone
-	return fillUpZeros($date["year"], 4) . "-" . fillUpZeros($date["mon"], 2) . "-" . fillUpZeros($date["mday"], 2) .
-		" " . fillUpZeros($date["hours"], 2) . ":" . fillUpZeros($date["minutes"], 2) . ":" . fillUpZeros($date["seconds"], 2) . 
-		" (" . $date["yday"] . "' " . $date["weekday"] . " " . $date["mday"] . " " . $date["month"] . ")";
 }
 
-// Assumes the file exists!
-function getFileContents($url)
+// Makes a new post + id for you. You can later set it's properties.
+function newPost()
 {
-	$f = fopen($url, "r");
-	$content = fread($f, filesize($url));
-	fclose($f);
-	return $content;
+	
 }
 
-// Assumes the file exists!
-function saveFileContents($url, $content)
+// Get's the target post 
+function getPost($id)
 {
-	$f = fopen($url, "w");
-	fwrite($f, $content);
-	fclose($f);
+
+}
+
+// Gets the latest post id
+function getLatestPostId()
+{
+
+}
+
+// Gets the latest post
+function getLatestPost()
+{
+
 }
 
 ?>

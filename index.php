@@ -10,15 +10,17 @@
 <nav id="lnav">
 	<ul>
 		<li><a href="post.php">Post something new</a></li>
-		<li><a href="grid.php">View post history</a></li>
-		<li><a href="edit.php">Edit a post</a></li>
+		<li><a href="grid.php">TODO: View post history</a></li>
+		<li><a href="edit.php">TODO: Edit a post</a></li>
 	</ul>
 </nav>
 
 <div id="container">
 
 <?php
-// Let's face it. PHP sucks. But that's ok.
+// Let's face it. PHP sucks. But that's ok. Or does it?
+
+// TODO: Implement
 
 require "blag.php";
 require "do_view.php";
@@ -42,8 +44,7 @@ else // Or display last twenty posts instead (or selected history)
 	}
 	else
 	{
-		require "postcounter.php";
-		$a = getPostCount();
+		$a = getLatestPostId();
 	}
 
 	for ($i = 0; $i < 20; $i++)

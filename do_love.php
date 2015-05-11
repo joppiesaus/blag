@@ -3,13 +3,15 @@
 // Requires blag.php
 
 // Love this post!
-function love($pid)
+function love($id)
 {
-	$post = getPostjson($pid);
+	$post = getPost($id);
+
 	// TODO: Check if user already loved the post
-	$post["love"]++;
-	setPostjson($pid, $post);
-	return $post["love"];
+	var $luv = ++$post->content["love"];
+
+	$post->save();
+	return $luv;
 }
 
 ?>

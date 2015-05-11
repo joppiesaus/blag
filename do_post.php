@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Post something</title>
-	<meta charset="utf-8">
-</head>
-<body>
-
 <?php
 
 $date = getdate();
@@ -20,27 +12,16 @@ if (empty($text))
 }
 
 require "blag.php";
-require "postcounter.php";
 
-// Get a new post identification number
-$pid = getNewPostNumber();
+$post = newPost();
 
-// Get the paths
-// You need DOCUMENT_ROOT. PHP doesn't allow that when mkdir
-$postdir = BLAGPATH . "/p/" . $pid . "/";
+$post->content["title"] = $title;
+$post->content["content"] = $content;
+$post->content["submitdate"] = getDate();
 
-// Make a directory for the post
-mkdir($postdir);
-
-
-saveFileContents($postdir . "post.json", json_encode([ "title" => $title, "date" => $date, "love" => 0 ]));
-
-// Save the post!
-saveFileContents($postdir . "index.html", $text);
+$post->save();
 
 // And return back to the blog
 header("Location:index.php");
-?>
 
-</body>
-</html>
+?>
