@@ -20,7 +20,7 @@
 
 	require "blag.php";
 
-	$title = getPostjson()["title"];
+	$title = getPostjson($pid)["title"];
 	$text = getFileContents(BLAGPATH . '/p/' . $pid . '/index.html');
 
 	echo 'Title: <input type="text" value="' . $title . '" name="p_title" /><br><br>';
@@ -28,7 +28,7 @@
 
 	$_POST["id"] = $pid;
 
-	echo '<input type="submit" value="Post" />';
+	echo '<input type="submit" value="Edit" />';
 ?>
 </form>
 
