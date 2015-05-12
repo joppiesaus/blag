@@ -18,10 +18,6 @@
 <div id="container">
 
 <?php
-// Let's face it. PHP sucks. But that's ok. Or does it?
-
-// TODO: Implement
-
 require "blag.php";
 require "do_view.php";
 
