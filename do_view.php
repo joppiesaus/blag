@@ -1,11 +1,11 @@
 <?php
-
 // Requires blag.php
+require "datehelper.php";
 
 // Displays a post
 function view($id)
 {
-	require "datehelper.php";
+	
 
 	$post = getPost($id)->content;
 

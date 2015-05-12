@@ -35,7 +35,7 @@ function getLatestPostId()
 // Gets the latest post
 function getLatestPost()
 {
-
+	return getPost(getLatestPostId());
 }
 
 ?>

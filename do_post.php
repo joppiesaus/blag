@@ -1,6 +1,5 @@
 <?php
 
-$date = getdate();
 $title = $_POST["p_title"];
 $text = $_POST["p_content"];
 
