@@ -10,7 +10,7 @@
 <nav id="lnav">
 	<ul>
 		<li><a href="post.php">Post something new</a></li>
-		<li><a href="grid.php">TODO: View post history</a></li>
+		<li><a href="grid.php">View post history</a></li>
 		<li><a href="edit.php">TODO: Edit a post</a></li>
 	</ul>
 </nav>
