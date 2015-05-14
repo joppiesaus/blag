@@ -9,22 +9,24 @@ define("POSTDIR", BLAGDIR . "/p/");
 
 class Post
 {
-	var $id;
-	var $content;
+	public $id;
+	public $content;
 
 	// Saves this post
-	function save()
+	public function save()
 	{
-		$f = fopen(POSTDIR . $id . "/post.json", "w");
-		fwrite($f, $content);
+		mkdir(POSTDIR . $this->id);
+		$f = fopen(POSTDIR . $this->id . "/post.json", "w");
+		fwrite($f, json_encode($this->content));
 		fclose($f);
 	}
 
 	// Loads this post
-	function load()
+	public function load()
 	{
-		$f = fopen(POSTDIR . $id . "/post.json", "r");
-		$content = fread($f);
+		$path = POSTDIR . $this->id . "/post.json";
+		$f = fopen($path, "r");
+		$this->content = json_decode(fread($f, filesize($path)), true);
 		fclose($f);
 	}
 }
@@ -32,16 +34,18 @@ class Post
 // Makes a new post + id for you. You can later set it's properties.
 function newPost()
 {
-	$post = new Post();
+	$post = new Post;
 	$post->id = getNewPostNumber();
+	return $post;
 }
 
 // Get's the target post 
 function getPost($id)
 {
-	$post = new Post();
+	$post = new Post;
 	$post->id = $id;
 	$post->load();
+	return $post;
 }
 
 // Gets the latest post id

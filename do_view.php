@@ -5,8 +5,6 @@ require "datehelper.php";
 // Displays a post
 function view($id)
 {
-	
-
 	$post = getPost($id)->content;
 
 	// Display it

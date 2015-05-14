@@ -45,11 +45,11 @@ else // Or display last twenty posts instead (or selected history)
 
 	for ($i = 0; $i < 20; $i++)
 	{
-		view($a--);
 		if ($a < 0)
 		{
 			break;
 		}
+		view($a--);
 	}
 }
 

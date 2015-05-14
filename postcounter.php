@@ -7,7 +7,7 @@ function getPostCount()
 	if (!file_exists(POST_COUNT_FILENAME))
 	{
 		$f = fopen(POST_COUNT_FILENAME, "w");
-		fwrite($f, "0");
+		fwrite($f, "-1");
 		fclose($f);
 	}
 	$f = fopen(POST_COUNT_FILENAME, "r");

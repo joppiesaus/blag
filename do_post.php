@@ -14,9 +14,11 @@ require "blag.php";
 
 $post = newPost();
 
+
 $post->content["title"] = $title;
-$post->content["content"] = $content;
+$post->content["content"] = $text;
 $post->content["submitdate"] = getDate();
+$post->content["love"] = 0;
 
 $post->save();
 
