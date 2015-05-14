@@ -15,5 +15,6 @@ for ($i = getLatestPostId(); $i > 0; $i--)
 }
 
 ?>
+<br><a href="index.php">Back to blag</a>
 </body>
 </html>

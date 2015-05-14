@@ -35,7 +35,7 @@ function newPost()
 {
 	$post = new Post;
 	$post->id = getNewPostNumber();
-	mkdir(POSTDIR . $post-id);
+	mkdir(POSTDIR . $post->id);
 	return $post;
 }
 
