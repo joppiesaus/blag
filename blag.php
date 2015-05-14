@@ -15,7 +15,6 @@ class Post
 	// Saves this post
 	public function save()
 	{
-		mkdir(POSTDIR . $this->id);
 		$f = fopen(POSTDIR . $this->id . "/post.json", "w");
 		fwrite($f, json_encode($this->content));
 		fclose($f);
@@ -31,11 +30,12 @@ class Post
 	}
 }
 
-// Makes a new post + id for you. You can later set it's properties.
+// Makes a new post + id for you. You can later set it's properties. You MUST save it thought.
 function newPost()
 {
 	$post = new Post;
 	$post->id = getNewPostNumber();
+	mkdir(POSTDIR . $post-id);
 	return $post;
 }
 
