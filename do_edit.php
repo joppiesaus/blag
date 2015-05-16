@@ -2,7 +2,7 @@
 
 session_start();
 $id = $_SESSION["id"];
-session_destroy();
+unset($_SESSION["id"]);
 
 $title = $_POST["p_title"];
 $text = $_POST["p_content"];
