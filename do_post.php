@@ -10,6 +10,14 @@ if (empty($text))
 	exit;
 }
 
+session_start();
+
+if (!isset($_SESSION["who"]))
+{
+	echo "Nobody logged in!";
+	exit;
+}
+
 require "blag.php";
 
 $post = newPost();

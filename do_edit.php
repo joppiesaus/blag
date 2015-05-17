@@ -4,6 +4,12 @@ session_start();
 $id = $_SESSION["id"];
 unset($_SESSION["id"]);
 
+if (!isset($_SESSION["who"]))
+{
+	echo "Nobody logged in!";
+	exit;
+}
+
 $title = $_POST["p_title"];
 $text = $_POST["p_content"];
 

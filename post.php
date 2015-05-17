@@ -6,6 +6,15 @@
 </head>
 <body>
 
+<?php
+session_start();
+
+if (!isset($_SESSION["who"]))
+{
+	echo "<b>Note</b>: You cannot post something, because you aren't logged in. <a href=\"login.php\">Login</a>";
+}
+?>
+
 <form action="do_post.php" method="post">
 
 	Title: <input type="text" value="" name="p_title" /><br><br>
